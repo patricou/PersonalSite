@@ -1,10 +1,19 @@
 <div class="well well-sm">
-    <h2 ng-cloak><span class="glyphicon glyphicon-globe logo"> </span> Welcome to {{params.displayName}} Site&nbsp;<small>&#169;{{params.displayNameCopyright}}</small></h2>
+    <div class="row">
+        <div class="text-left col-sm-8">
+            <h2 ng-cloak>&nbsp;<span class="glyphicon glyphicon-globe logo"> </span> Welcome to {{params.displayName}} Site&nbsp;<small>&#169;{{params.displayNameCopyright}}</small></h2>
+        </div>
+        <div class="text-right col-sm-4">
+            <a href="https://ch.linkedin.com/in/patrickdeschamps" class="btn btn-social-icon btn-sm btn-linkedin">
+            <i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/patricou" class="btn btn-social-icon btn-sm btn-github">
+            <i class="fa fa-github"></i></a>
+            <a href="https://www.facebook.com/patrick.deschamps" class="btn btn-social-icon btn-sm btn-facebook">
+            <i class="fa fa-facebook"></i></a>&nbsp;
+        </div>
+    </div>
 </div>
-<!--<div class="container-fluid">
-    <img src="{{params.mainPageImage}}" class="img-responsive center-block" />
-</div>-->
-<div class="container-fluid">    
+<div class="container-fluid">
     <video preload="auto" autoplay loop poster={{params.mainPageImage}} class="patvideo" id="video-background"
         oncanplay="$(this)[0].play()">
         <source src={{params.mainPageVideo}} type="video/mp4">
@@ -12,15 +21,23 @@
     </video>
 </div>
 <nav class = "navbar navbar-inverse navbar-fixed-bottom" role = "navigation">
-    <div class = "navbar-header">
-        <a class = "navbar-brand" href = "#"><small>Upload Picture(s) from your mobile for {{params.displayName}} :</small></a>
-    </div>
-    <div nav navbar-nav>
-        <form  id="upload-file-form" class = "navbar-form navbar-left" role = "search">
-            <div class="form-group">
-                <input class="form-control btn-warning" placeholder="Search" id="upload-file-input" type="file" name="uploadfile" multiple accept="*" />
-                <p class = "navbar-text" title="for {{params.displayName}}" id="upload-file-message"> </P>
-            </div>
-        </form>
+    <div class="container-fluid">
+        <div nav navbar-nav>
+            <form  id="upload-file-form" class = "form-inline" role = "search">                
+                <div class="form-group">
+                    <label for="file" >
+                        <div class="bg-info" ng-show="homelabel">
+                            &nbsp;Upload Picture(s) from your mobile&nbsp;
+                        </div>
+                    </label>
+                    <input class="form-control btn-warning" placeholder="Search" id="upload-file-input" type="file" name="uploadfile"   multiple accept="*" />
+                    <label for="file" >
+                        <div  ng-class="alertload" ng-show="!homelabel">                          
+                            {{uploadmessage}}
+                        </div>
+                    </label>                  
+                </div>
+            </form>
+        </div>    
     </div>
 </nav>

@@ -6,11 +6,14 @@ define([], function(){
         AppData.getCache().then(function(response){
             $scope.params = response.get('mainParams');
         });
+        $scope.homelabel=true;
+        $("#upload-file-input").on("enter",function(){$scope.homelabel=true;});
         //upload file        
         $("#upload-file-input").on("change",
             function() {
-                $("#upload-file-message").text("File(s) is(are) uploading .... please wait.");
-                $("#upload-file-input").hide();        
+                $scope.uploadmessage="File(s) is(are) uploading .... please wait.";
+                $scope.homelabel=true;
+                $scope.alertload="bg-info";
                 var request = {
                     method: 'POST',
                     url: "rest/uploadFile",
@@ -18,18 +21,20 @@ define([], function(){
                     headers: {
                         'Content-Type': undefined
                     }
-                };
+                };  
                 // SEND THE FILES.
                 $http(request)
                     .success(function (data) {
                         // Handle upload success
-                        $("#upload-file-message").text("File succesfully uploaded.");
-                        $("#upload-file-input").show();
+                        $scope.uploadmessage="File succesfully uploaded.";
+                        $scope.homelabel=false;
+                        $scope.alertload="bg-success";
                     })
                     .error(function () {
                         // Handle upload error
-                        $("#upload-file-message").text("File not uploaded.");
-                        $("#upload-file-input").show();
+                        $scope.uploadmessage="File not uploaded.";
+                        $scope.homelabel=false;
+                        $scope.alertload="bg-danger";
                     });           
             });
     }

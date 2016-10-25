@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="js/bower_components/bootstrap/dist/css/bootstrap.css">    
     <link rel="stylesheet" href="js/bower_components/bootstrap/dist/css//bootstrap-theme.css" >
     <link rel="stylesheet" href="js/bower_components/blueimp-gallery/css/blueimp-gallery.css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />            
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"/>  
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">           
     <link rel="stylesheet" href="css/pat-style.css" >
 </head>
 <header ng-controller="mainCtrl">
@@ -32,15 +33,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <div ng-cloak>
+                </button>               
+                <div ng-cloak>                    
                     <a class="navbar-brand active" href="#/"> {{params.displayName}} Site </a>
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="dropdown mega-dropdown" id="drm">
-                        <a href="/" class="dropdown-toggle" data-toggle="dropdown">Links <span class="caret"></span></a>
+                        <a href="/" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-link logo-small"></span>Links</a>
                         <ul class="dropdown-menu mega-dropdown-menu"  id="drmm">
                             <div id="linksurl"></div>
                         </ul>
@@ -56,7 +57,7 @@
                     </li>                                                     
                      <li>
                         <a href="#/camera"><span class="glyphicon glyphicon-facetime-video logo-small"></span>&nbsp;Camera</a>
-                    </li>                                                     
+                    </li>                      
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>

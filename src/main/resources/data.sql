@@ -65,9 +65,12 @@ insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) val
 insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'Bootstrapzero','https://www.bootstrapzero.com/','Bootstrapzero Ressources', 9);
 insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'BuildwithBootstrap','http://builtwithbootstrap.com/','Build with Bootstrap links', 9);
 insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'wrapbootstrap','https://wrapbootstrap.com/','wrapbootstrap', 9);
-insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'market.envato.com','https://market.envato.com/','market.envato.com', 9);
+insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'bootply','http://www.bootply.com/','bootply', 9);
+insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'bootsnip','http://bootsnipp.com','bootsnipp', 9);
 
 insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'Pixabay','https://pixabay.com/fr/videos/','pixabay.com/fr/videos/', 10);
+insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'Fontawesome','http://fontawesome.io/','fontawesome site', 10);
+insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'flatuicolors','https://flatuicolors.com/','flatuicolors site', 10);
 
 insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'Developpers Web','https://developers.google.com/web/','Site Google web developper', 11);
 insert into URL_LINKS ( LINK_NAME, URL, LINK_DESCRIPTION ,CATEGORY_LINK_ID ) values( 'My Gmail','https://accounts.google.com/ServiceLogin?service=mail&continue=https://mail.google.com/mail/&hl=fr#identifier','Google Gmail', 11);

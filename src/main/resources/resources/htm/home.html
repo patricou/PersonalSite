@@ -1,0 +1,26 @@
+<div class="well well-sm">
+    <h2 ng-cloak><span class="glyphicon glyphicon-globe logo"> </span> Welcome to {{params.displayName}} Site&nbsp;<small>&#169;{{params.displayNameCopyright}}</small></h2>
+</div>
+<!--<div class="container-fluid">
+    <img src="{{params.mainPageImage}}" class="img-responsive center-block" />
+</div>-->
+<div class="container-fluid">    
+    <video preload="auto" autoplay loop poster={{params.mainPageImage}} class="patvideo" id="video-background"
+        oncanplay="$(this)[0].play()">
+        <source src={{params.mainPageVideo}} type="video/mp4">
+        Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+</div>
+<nav class = "navbar navbar-inverse navbar-fixed-bottom" role = "navigation">
+    <div class = "navbar-header">
+        <a class = "navbar-brand" href = "#"><small>Upload Picture(s) from your mobile for {{params.displayName}} :</small></a>
+    </div>
+    <div nav navbar-nav>
+        <form  id="upload-file-form" class = "navbar-form navbar-left" role = "search">
+            <div class="form-group">
+                <input class="form-control btn-warning" placeholder="Search" id="upload-file-input" type="file" name="uploadfile" multiple accept="*" />
+                <p class = "navbar-text" title="for {{params.displayName}}" id="upload-file-message"> </P>
+            </div>
+        </form>
+    </div>
+</nav>

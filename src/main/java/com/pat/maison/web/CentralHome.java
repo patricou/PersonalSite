@@ -1,0 +1,72 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+package com.pat.maison.web;
+
+import com.pat.maison.config.MainConfig;
+import com.pat.maison.model.CategoryLinksRepository;
+import com.pat.maison.model.UrlLinksRepository;
+import com.pat.maison.services.DirectoriesServices;
+import com.pat.maison.services.SmtpMailSender;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping({"/"})
+public class CentralHome {
+    @Autowired
+    DirectoriesServices directoriesServices;
+    @Autowired
+    MainConfig mainConfig;
+    @Autowired
+    SmtpMailSender smtpMailSender;
+    @Autowired
+    UrlLinksRepository urlLinksRepository;
+    @Autowired
+    CategoryLinksRepository categoryLinksRepository;
+    private static Logger log = Logger.getLogger(CentralHome.class);
+
+    public CentralHome() {
+    }
+
+    @RequestMapping(
+            value = {"/", "/site", "/home"},
+            method = {RequestMethod.GET}
+    )
+    public String mainPage(HttpServletRequest request, Model model) {
+        log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURI());
+        model.addAttribute("params", this.mainConfig);
+        return "index";
+    }
+
+    @CrossOrigin(
+            origins = {"http://81.28.193.182:8765"}
+    )
+    @RequestMapping(
+            value = {"/camera"},
+            method = {RequestMethod.GET}
+    )
+    public String redirectToCameraConfog(HttpServletRequest request, Model model) {
+        log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURI());
+        model.addAttribute("params", this.mainConfig);
+        return "redirect:http://" + this.mainConfig.getIPServer() + ":8765";
+    }
+
+    @RequestMapping(
+            value = {"/wJsXAjZz"},
+            method = {RequestMethod.GET}
+    )
+    public String godaddyDomaineCHeck(HttpServletRequest request, Model model) {
+        log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURI());
+        model.addAttribute("params", this.mainConfig);
+        return "wJsXAjZz.html";
+    }
+}

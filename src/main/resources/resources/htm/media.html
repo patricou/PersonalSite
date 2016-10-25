@@ -1,0 +1,86 @@
+<div id="patpictures">
+    <div class="well well-sm">
+        <h2><span class="glyphicon glyphicon-picture logo"> </span> Enjoy all {{params.displayName}} Pictures  <small>&#169;{{params.displayNameCopyright}}</small></h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row center-block">
+            <div class="container-fluid">
+                <div class="dropdown col-sm-4" id="find-dirs-images">
+                    <button type="button" data-toggle="dropdown" class="btn-lg dropdown-toggle btn-block btn-primary">Main Directories
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="x in alldir">
+                            <a href="#/media">{{x}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown col-sm-4" id="find-images1">
+                    <button type="button" data-toggle="dropdown" class="btn-lg dropdown-toggle btn-block btn-primary">Sub1 Directories
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="x in allsubdir">
+                            <a href="#/media">{{x}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown col-sm-4" id="find-images2">
+                    <button type="button" data-toggle="dropdown" class="btn-lg dropdown-toggle btn-block btn-primary">Sub2 Directories
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="x in allsubsubdir">
+                            <a href="#/media">{{x}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row center-block">
+            <div>
+                <div class="col-md-12  text-center">
+                    <h4><span class="label label-default">{{currentdir}}</span>
+                        <span class="label label-info">{{elementlength}}</span></h4>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div  class="container-fluid">
+                <div class="col-sm-12 text-center">
+                    <button id="image-gallery-button" type="button" class="btn-lg btn-block btn-success">
+                        <span class="glyphicon glyphicon-eye-open">      </span>
+                        Launch Gallery
+                        <span class="glyphicon glyphicon-eye-open">      </span>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <div class="checkbox col-sm-4">
+                    <label>
+                        <input id="fullscreen" type="checkbox" aria-label="Launch full screen" value="value">
+                        <span class="glyphicon glyphicon-fullscreen"></span> Full Screen
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br>                
+        <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body  blueimp-gallery-controls -->
+        <div id="blueimp-gallery" class="blueimp-gallery"> 
+            <!-- The container for the modal slides -->
+            <div class="slides"></div>
+            <!-- Controls for the borderless lightbox -->
+            <h3 class="title"></h3>
+            <a class="prev">&laquo;</a>
+            <a class="next">&raquo;</a>
+            <a class="close">&times;</a>
+            <a class="play-pause"></a>
+            <ol class="indicator"></ol>    
+        </div>
+        <!-- The container for the list of example images -->
+        <div id="links">          
+            <a ng-repeat="i in allimage" href="image{{i}}" title="{{i}}" /> 
+        </div>    
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.idea/**
+.mvn/**
+_pgbackup/**
+*.crt
+mvnw
+mvnw.cmd
+*.iml
+pinegrow.json
+*.keystore
+target/**
+src/main/resources/resources/js/bower_components
+src/main/resources/application.properties

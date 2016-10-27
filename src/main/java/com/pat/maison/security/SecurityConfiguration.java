@@ -73,7 +73,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                             "/htm/position.html",
                             //"/htm/camera.html",
                             // "/camera",
-                            "/wJsXAjZz.html",
+                            "/wJsXAjZz.html","/google8a812a66a90f8b7a.html",
                             "/postmessage",
                             "/rest/links",
                             "/rest/mainconfig",

@@ -69,4 +69,16 @@ public class CentralHome {
         model.addAttribute("params", this.mainConfig);
         return "wJsXAjZz.html";
     }
+
+
+    @RequestMapping(
+            value = {"/google8a812a66a90f8b7a"},
+            method = {RequestMethod.GET}
+    )
+    public String googleDomaineCHeck(HttpServletRequest request, Model model) {
+        log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURI());
+        model.addAttribute("params", this.mainConfig);
+        return "google8a812a66a90f8b7a.html";
+    }
+
 }

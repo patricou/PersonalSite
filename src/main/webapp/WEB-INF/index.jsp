@@ -14,8 +14,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="generator" content="Codeply">
+    <META NAME="description" CONTENT="Personal site de Patrick Deschamps ( Patricou )">
+    <META NAME="keywords" CONTENT="patrick deschamps, web, java, developper, spring, spring boot, spring mvc, rest, javascript, angularjs, jquery, requirejs, bootstrap">
+    <META NAME="robots" CONTENT="all"> 
+    <META NAME="Content-language" CONTENT="english">
+    <META NAME="Author" CONTENT="Patrick Deschamps">
+    <META HTTP-EQUIV="Reply-to" CONTENT="https://182-193-28-81.ftth.cust.kwaoo.net/#/message">
+    <META NAME="Distribution" CONTENT="global">
+    <META NAME="Rating" CONTENT="General">
     <title>
-         Site 
+         Patrick Deschamps (patricou) Personal Site. 
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="js/bower_components/bootstrap/dist/css/bootstrap.css">    
@@ -41,7 +49,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="dropdown mega-dropdown" id="drm">
-                        <a href="/" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-link logo-small"></span>Links</a>
+                        <a href="/" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-link logo-small"></span>&nbsp;Links</a>
                         <ul class="dropdown-menu mega-dropdown-menu"  id="drmm">
                             <div id="linksurl"></div>
                         </ul>

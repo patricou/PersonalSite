@@ -8,48 +8,41 @@ define([], function(){
 	        $scope.params = response.get('mainParams');
 	    });
 	    //taken from : https://spring.io/guides/tutorials/spring-security-and-angular-js/
-	    var self = this;
+	    /*var self = this;
 	    self.tab = function(route) {
+	    	$log.info('Route inside the controller loginCtrl = ' + route);
 	        return $route.current && route === $route.current.controller;
-	        $log.info('Route inside the controller loginCtrl = ' + route);
-	    };
-	    var authenticate = function(credentials, callback) {
+	    };*/
+	    $scope.credentials = {};		   
+	    // check the login on user methd on server side
+	    $scope.authenticate = function(credentials) {
 	        var headers = credentials ? {
 	            authorization : "Basic "
 	                    + btoa(credentials.username + ":"
 	                            + credentials.password)
 	        } : {};
-	        $http.get('user', {
+	        $http({
+	        	method : 'GET',
+	        	url : 'user'  ,	        	
 	            headers : headers
-	        }).then(function(response) {
-	            if (response.data.name) {
-	                $rootScope.authenticated = true;
-	            } else {
-	                $rootScope.authenticated = false;
-	            }
-	            callback && callback($rootScope.authenticated);
-	        }, function() {
-	            $rootScope.authenticated = false;
-	            callback && callback(false);
-	        });
-	    }
-	    //authenticate();
-	    self.credentials = {};
-	    self.login = function() {
-	        authenticate(self.credentials, function(authenticated) {
-	            if (authenticated) {
-	                console.log("Login succeeded. url :" + AppData.getprivatecache().loginurl);
-	                $location.path( AppData.getprivatecache().loginurl);
-	                self.error = false;
-	                $rootScope.authenticated = true;
-	            } else {
-	                console.log("Login failed")
-	                $location.path("/login");
-	                self.error = true;
-	                $rootScope.authenticated = false;
-	            }
 	        })
-	    };
+	        .then(
+	        	function successCallback(response) {		            
+		            console.log("Login succeeded. url :" + AppData.getprivatecache().loginurl);
+	                $rootScope.authenticated = true;
+	                $rootScope.userpatappli = response.data.principal.username;
+	                $rootScope.messageboo = false;	                
+	                $location.path( AppData.getprivatecache().loginurl);	           	            	
+	        	},
+	            function errorCallback(response) {
+	        		console.log("Login failed")
+	                $location.path("/login");
+		            $rootScope.authenticated = false;		            
+		            $rootScope.errorlogmessage = "Login failed ";
+	                $rootScope.messageboo = true;	            	
+	        	}
+	  		);
+	    };	      
 	}
 
     loginCtrl.$inject = ['$rootScope','$scope', '$http', '$location', '$route', '$log', 'AppData'];

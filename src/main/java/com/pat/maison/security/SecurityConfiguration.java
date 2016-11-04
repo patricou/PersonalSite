@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -27,6 +28,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.IOException;
 
 @Configuration
@@ -46,6 +48,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyAuthenticationFailureHandler authenticationFailureHandler;
 
+    @Autowired
+    private DataSource dataSource;
+
+    @Autowired
+    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery(
+                        "select username,password, enabled from users where username=?")
+                .authoritiesByUsernameQuery(
+                        "select username, role from user_roles where username=?");
+    }
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
@@ -64,6 +78,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout()
                 .and()
                 .authorizeRequests()
+                    .antMatchers("/camera","/htm/camera.html").access("hasRole('ROLE_CAMERA')")
+                    .antMatchers("/media","/htm/media.html ").access("hasRole('ROLE_MEDIA')")
                     .antMatchers(
                             "/",
                             "/login",
@@ -73,6 +89,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                             "/htm/position.html",
                             //"/htm/camera.html",
                             // "/camera",
+                            "/callback",
                             "/wJsXAjZz.html","/google8a812a66a90f8b7a.html",
                             "/postmessage",
                             "/rest/links",
@@ -82,9 +99,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                             "/" + this.mainConfig.getMainPageVideo(),
                             "/console/**")
                     .permitAll()
-                    .anyRequest()
-                        .authenticated()
-                    ;
+                    .anyRequest().authenticated();
+
     }
 
     private Filter csrfHeaderFilter() {
@@ -120,8 +136,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
                 .antMatchers("/resources/**");
-
-
     }
 
 }

@@ -30,7 +30,11 @@ define([], function(){
 		    	getprivatecache : function(){
 		    		// $log.info('cache : ' + cache.loginurl );             
 		    	 	return cache;
-		    	}
+		    	},
+		    	// to check if we really need to put his method twice ....
+		    	setprivatecache : function(field,data){		 			
+		  			cache[field] = data;
+				}				
 		    };
 
 		    return cacheFct;

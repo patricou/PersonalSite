@@ -10,28 +10,35 @@ import javax.persistence.*;
  * Created by patricou on 21/05/2016.
  */
 @Entity
+@Table(name = "urllinks")
 public class UrlLinks {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    @Column(name="urllinks_id")
+    private Long urllinksId;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne//(cascade=CascadeType.ALL)
+    @JoinColumn(name = "categorylink_id", nullable = false)
     //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id", scope=ServerRequest.class)
     private CategoryLink categoryLink;
 
+    @Column(name="linkname")
     private String linkName;
+
     private String url;
+
+    @Column(name="linkdescription")
     private String linkDescription;
 
     private UrlLinks(){}
 
-    public Long getId() {
-        return id;
+    public Long getUrllinksId() {
+        return urllinksId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUrllinksId(Long urllinksId) {
+        this.urllinksId = urllinksId;
     }
 
     public CategoryLink getCategoryLink() {
@@ -81,6 +88,6 @@ public class UrlLinks {
 
     @Override
     public String toString() {
-        return getId() + " : " + getLinkName() + " " +getUrl() + " " + getLinkDescription() + " " + getCategoryLink().toString() ;
+        return getUrllinksId() + " : " + getLinkName() + " " +getUrl() + " " + getLinkDescription() + " " + getCategoryLink().toString() ;
     }
 }

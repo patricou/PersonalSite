@@ -61,17 +61,22 @@ define([], function(){
                 return {
                     'responseError': function(rejection) {
                         var status = rejection.status;
+                        var statusText = rejection.statusText;
                         var config = rejection.config;
                         var method = config.method;
                         var url = config.url;
                         // store the varaible to find the root after a login                        
-                        //$log.info('Login request for url '+ url.split("/")[1].split(".")[0] );                                     
-                        AppDataProvider.setprivatecache('loginurl','/'+ url.split("/")[1].split(".")[0] );
-                        if (status == 401) {
-                            $location.path( "/login" );
-                        } else {
-                            $rootScope.error = method + " on " + url + " failed with status " + status;
+                        //$log.info('Login request for url '+ url.split("/")[1].split(".")[0] );                                                             
+                        AppDataProvider.setprivatecache('loginurl','/'+ url.split("/")[1].split(".")[0] );                        
+                        $log.info('status : ' + status);
+                        if ( status != 401 ){                                       
+                            $rootScope.errorlogmessage = "Acces issue : " + status + " " + statusText;                            
+                            $rootScope.messageboo = true;
+                        }else{
+                            $rootScope.messageboo = false;
+                            AppDataProvider.setprivatecache('errorlogmessage', "Error 401, but not displayed");
                         }
+                        $location.path( "/login" );
                         return $q.reject(rejection);
                     }
                 };

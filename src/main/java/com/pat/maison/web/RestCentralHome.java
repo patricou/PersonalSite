@@ -92,7 +92,6 @@ public class RestCentralHome {
         } catch (Exception var2) {
             log.info("Exception thrown with PostConstruct procedure in RestCentralHome class : " + var2.getMessage().toString());
         }
-
     }
 
     @RequestMapping(
@@ -127,8 +126,10 @@ public class RestCentralHome {
     )
     public Principal user(Principal user, HttpServletRequest request) {
         log.info("Connection with user " + (user == null?"not logged":user.getName()) + " from " + request.getRemoteAddr() + " to " + request.getRequestURI() + " OK.");
-        String subject = " Connection on Pat Site OK with user " + user.getName() + " from " + request.getRemoteAddr();
-        this.smtpMailSender.sendMail(this.mainConfig.getSendailFrom(), this.mainConfig.getSendailTo(), subject, subject);
+        if (user!= null ) {
+            String subject = " Connection on Pat Site OK with user " + user.getName() + " from " + request.getRemoteAddr();
+            this.smtpMailSender.sendMail(this.mainConfig.getSendailFrom(), this.mainConfig.getSendailTo(), subject, subject);
+        }
         return user;
     }
 

@@ -13,24 +13,28 @@ import java.util.List;
  */
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property="id", scope=ServerRequest.class)
 @Entity
+@Table(name = "categorylink")
 public class CategoryLink {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    @Column(name="categorylink_id")
+    private Long categorylinkId;
 
     @OneToMany(mappedBy = "categoryLink")
     private List<UrlLinks> urlLinks = new ArrayList<UrlLinks>();
 
+    @Column(name="categoryname")
     private String categoryName;
+    @Column(name="categorydescription")
     private String categoryDescription;
 
-    public Long getId() {
-        return id;
+    public Long getCategorylinkId() {
+        return categorylinkId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCategorylinkId(Long categorylinkId) {
+        this.categorylinkId = categorylinkId;
     }
 
     public List<UrlLinks> getUrlLinks() {
@@ -67,7 +71,7 @@ public class CategoryLink {
 
     @Override
     public String toString() {
-        return getId() +  " : " + getCategoryName();
+        return getCategorylinkId() +  " : " + getCategoryName();
     }
 
 }

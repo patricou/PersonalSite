@@ -1,6 +1,6 @@
 define([], function(){
    
-   function mainCtrl($rootScope, $scope, $http, $log, AppData, $location, $interval, $window){
+   function mainCtrl($rootScope, $scope, $http, $log, AppData, $location, $interval, $window, $templateCache){
         //log
         $log.info('Entered inside the controller mainCtrl');
         // Get params            
@@ -33,6 +33,8 @@ define([], function(){
                 $log.info('succesfully logout');  
                 $rootScope.authenticated = false;
                 $location.path("/home");
+                // remove cache with html page when logout
+                $templateCache.removeAll();
             }).error(function(data) {
                 $log.info('Unsuccesfully logout' + data);  
                 $rootScope.authenticated = true;
@@ -49,9 +51,28 @@ define([], function(){
                 $('#myNavbar').collapse('hide');
             }
         });
+        //for the initialisation of the login button ( in case if a refresh is done on the browser page is done by the user)
+        $http({
+                method : 'GET',
+                url : 'user'  
+                //headers : headers
+            })
+            .then(
+                function successCallback(response) {                    
+                    console.log("ALready logged");
+                    $rootScope.userpatappli = response.data.principal.username;
+                    $rootScope.authenticated = true;                    
+                    $location.path("/home");                                
+                },
+                function errorCallback(response) {
+                    console.log("Not Already logged")
+                    $location.path("/home");
+                    $rootScope.authenticated = false;                                                           
+                }
+            );
     }
 
-    mainCtrl.$inject=['$rootScope','$scope', '$http', '$log', 'AppData', '$location', '$interval', '$window'];
+    mainCtrl.$inject=['$rootScope','$scope', '$http', '$log', 'AppData', '$location', '$interval', '$window','$templateCache'];
 
     return mainCtrl;
 

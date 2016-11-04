@@ -70,7 +70,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a id="logoutbut" ng-show="authenticated" href="" >
-                        <span class="glyphicon glyphicon-log-out logo-small"></span>&nbsp;Logout</a>
+                        <span class="glyphicon glyphicon-log-out logo-small"></span>&nbsp;Logout {{userpatappli}}</a>
                     </li>
                     <li>
                         <a href="#/login" ng-show="!authenticated"><span class="glyphicon glyphicon-log-in logo-small"></span>&nbsp;Login </a>
@@ -81,7 +81,7 @@
         </div>
     </div>
 </header>
-<body style="padding-top: 40px;">
+<body class="ng-cloak" style="padding-top: 40px;">
     <div ng-view></div>    
 </body>
 <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC_JpzTMxi3FTB2jSl2XMe6E8tRQswbJNU"></script>

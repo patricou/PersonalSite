@@ -70,6 +70,16 @@ public class CentralHome {
         return "wJsXAjZz.html";
     }
 
+    @RequestMapping(
+            value = {"/callback"}
+    )
+    public String callbackFromFacebook(HttpServletRequest request, Model model) {
+        log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURL());
+        log.info("Params " + request.getParameter("access_token"));
+       // model.addAttribute("params", this.mainConfig);
+        return "index";
+    }
+
 
     @RequestMapping(
             value = {"/google8a812a66a90f8b7a"},
@@ -82,3 +92,4 @@ public class CentralHome {
     }
 
 }
+

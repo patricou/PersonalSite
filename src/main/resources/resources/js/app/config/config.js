@@ -1,20 +1,20 @@
 /**
  * Main module configuration : routeApp
  */
-define([], function(){
+define([], function() {
 
-    function config($routeProvider,$httpProvider, AppDataProvider,$sceDelegateProvider) {
+    function config($routeProvider, $httpProvider, AppDataProvider, $sceDelegateProvider) {
         // To include files from another domain, add a whitelist of legal files and/or domains
         //$sceDelegateProvider.resourceUrlWhitelist([
-            // Allow same origin resource loads.
+        // Allow same origin resource loads.
         //    'self',
-             // Allow loading from other domain.          
+        // Allow loading from other domain.          
         //    'https://www.tutorialspoint.com/**'
         //]);
         // Push in the Header the X-XSRF-TOKEN token to not have CSRF issue
         $httpProvider.interceptors.push('XSRFInterceptor');
         // allow to call htm/login.html page when authentication error
-		$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         // routing system
         $routeProvider
             .when('/', {
@@ -36,17 +36,22 @@ define([], function(){
                 templateUrl: 'htm/message.html',
                 controller: 'messCtrl',
                 controllerAs: 'controller'
-            })  
+            })
             .when('/position', {
                 templateUrl: 'htm/position.html',
                 controller: 'posiCtrl',
                 controllerAs: 'controller'
-            }) 
+            })
             .when('/camera', {
                 templateUrl: 'htm/camera.html',
                 controller: 'cameraCtrl',
                 controllerAs: 'controller'
-            }) 
+            })
+            .when('/chat', {
+                templateUrl: 'htm/chat.html',
+                controller: 'chatCtrl',
+                controllerAs: 'controller'
+            })
             //.when('/rest/dirsublist/:directory?', {
             //    templateUrl: 'htm/media.html',
             //    controller: 'mediaCtrl',
@@ -55,36 +60,38 @@ define([], function(){
             .otherwise({
                 redirectTo: '/'
             });
+
         /* Register error provider that shows message on failed requests or redirects to login page on
          * unauthenticated requests */
-        $httpProvider.interceptors.push(function ($q, $rootScope, $location, $log) {
-                return {
-                    'responseError': function(rejection) {
-                        var status = rejection.status;
-                        var statusText = rejection.statusText;
-                        var config = rejection.config;
-                        var method = config.method;
-                        var url = config.url;
-                        // store the varaible to find the root after a login                        
-                        //$log.info('Login request for url '+ url.split("/")[1].split(".")[0] );                                                             
-                        AppDataProvider.setprivatecache('loginurl','/'+ url.split("/")[1].split(".")[0] );                        
+        $httpProvider.interceptors.push(function($q, $rootScope, $location, $log) {
+            return {
+                'responseError': function(rejection) {
+                    var status = rejection.status;
+                    var statusText = rejection.statusText;
+                    var config = rejection.config;
+                    var method = config.method;
+                    var url = config.url;
+                    // store the varaible to find the root after a login                        
+                    //$log.info('Login request for url '+ url.split("/")[1].split(".")[0] );                                                             
+                    if (url != 'user') {
+                        AppDataProvider.setprivatecache('loginurl', '/' + url.split("/")[1].split(".")[0]);
                         $log.info('status : ' + status);
-                        if ( status != 401 ){                                       
-                            $rootScope.errorlogmessage = "Acces issue : " + status + " " + statusText;                            
+                        if (status != 401) {
+                            $rootScope.errorlogmessage = "Acces issue : " + status + " " + statusText;
                             $rootScope.messageboo = true;
-                        }else{
+                        } else {
                             $rootScope.messageboo = false;
                             AppDataProvider.setprivatecache('errorlogmessage', "Error 401, but not displayed");
                         }
-                        $location.path( "/login" );
-                        return $q.reject(rejection);
+                        $location.path("/login");
                     }
-                };
-            }
-        );
+                    return $q.reject(rejection);
+                }
+            };
+        });
     };
 
-    config.$inject=['$routeProvider','$httpProvider','AppDataProvider','$sceDelegateProvider'];
+    config.$inject = ['$routeProvider', '$httpProvider', 'AppDataProvider', '$sceDelegateProvider'];
 
     return config;
 

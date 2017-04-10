@@ -33,7 +33,7 @@ import java.io.IOException;
                          AuthenticationException authException ) throws IOException {
 
 
-        log.info("Connection from " + request.getRemoteAddr() + ", url : "
+            log.info("Connection from " + request.getRemoteAddr() + ", url : "
                                                          + request.getRequestURI()+ " Unauthorized, user : "
                                                          + (request.getUserPrincipal() == null ? "no user provided": request.getUserPrincipal().getName()));
         /*

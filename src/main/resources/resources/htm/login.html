@@ -1,18 +1,16 @@
-<div class="well well-sm">
+<div class="well-sm">
     <h2><span class="glyphicon glyphicon-log-in logo"> </span> Enter Login to {{params.displayName}} Site&nbsp;<small>&#169;{{params.displayNameCopyright}}</small></h2>
 </div>
 <div class="container">
-    <div class="alert alert-danger" ng-show="messageboo" >    
+    <div class="alert alert-danger" ng-show="messageboo">
         {{errorlogmessage}}
     </div>
     <form role="form" ng-submit="authenticate(credentials)">
         <div class="form-group">
-            <label for="username">Username:</label> <input type="text"
-                                                           class="form-control" id="username" name="username" ng-model="credentials.username"/>
+            <label for="username">Username:</label> <input type="text" class="form-control" id="username" name="username" ng-model="credentials.username" />
         </div>
         <div class="form-group">
-            <label for="password">Password:</label> <input type="password"
-                                                           class="form-control" id="password" name="password" ng-model="credentials.password"/>
+            <label for="password">Password:</label> <input type="password" class="form-control" id="password" name="password" ng-model="credentials.password" />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

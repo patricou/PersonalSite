@@ -81,11 +81,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/camera","/htm/camera.html").access("hasRole('ROLE_CAMERA')")
                     .antMatchers("/media","/htm/media.html ").access("hasRole('ROLE_MEDIA')")
                     .antMatchers(
-                            "/",
+                            "/","/img/**","/cv","/link",
                             "/login",
                             "/htm/login.html",
-                            "/htm/home.html",
-                            "/htm/message.html",
+                            "/htm/home.html","/htm/chat.html",
+                            "/htm/message.html","/htm/usermessagedrctv.html",
                             "/htm/position.html",
                             //"/htm/camera.html",
                             // "/camera",

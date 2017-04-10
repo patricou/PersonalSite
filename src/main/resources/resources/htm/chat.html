@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="well-sm wellchat">
+    <h2 data-toggle="tooltipchat" ng-attr-title="Chat with {{params.displayName}}">
+        <span class="glyphicon glyphicon-comment logo"></span> PatsApp
+        <!--<button id="scroll" class="btn btn-info pull-right" type="button" ng-click="scrollbottom()">Scroll-bottom</button> -->
+        <button id="signinG" class="btn pull-right btn-social-icon btn-google" type="button" ng-click="signInG()"><span class="fa fa-google"><span></button>
+        <button id="signinF" class="btn pull-right btn-social-icon btn-facebook" type="button" ng-click="signInF()"><span class="fa fa-facebook"><span></button>
+        <button id="signout" class="btn btn-warning pull-right" type="button" ng-click="signOut()">Sign-Out</button>
+        <span class="pull-right">&nbsp</span>
+        <span class="pull-right" class="userpic" id="userpic"></span>
+    </h2>
+</div>
+<div class "videcontainer">
+    <div id="vid" class="row">
+        <div class="col-sm-6">
+            <div id="callbutton">
+                <div ng-repeat="user in users | filter:{ uid : '!' + ownuid}">
+                    <button id={{user.uid}} class="btn btn-success btn-sm pull-left" type="button" ng-click="makeCall(user.uid)"><i class="fa fa-video-camera"></i> {{user.name}}</button>
+                    <button id="dis{{user.uid}}" class="btn btn-danger btn-sm pull-left hidden" type="button" ng-click="disconnectcam(user.uid)"><i class="fa fa fa-stop"></i> End {{user.name}}</button>
+                </div>
+            </div>
+            <div id="thumb-out"></div>
+            <div id="vid-out"></div>
+
+        </div>
+    </div>
+</div>
+<div class="messcontainer">
+    <div id="messages" class="row">
+        <div class="col-sm-6">
+            <div ng-repeat="m in messages">
+                <user-message></user-message>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="barbutton" class="row">
+    <div class="container">
+        <div class="col-sm-12">
+            <div>
+                <form ng-submit="addMessage(newMessage)" class="form-inline">
+                    <div class="form-group" id="btnfrm">
+                        <input type="text" ng-model="newMessage.text" class="form-control" placeholder="Message" id="messagetext">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitbut"> <i class="fa fa-cloud-upload"></i> Message</button>
+                    <label for="mediaCapture" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload"></i> Image
+                    </label>
+                    <input id="mediaCapture" type="file" accept="image/*,capture=camera">
+                    <button id="removeall" class="btn btn-danger" type="button" ng-click="removeall()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

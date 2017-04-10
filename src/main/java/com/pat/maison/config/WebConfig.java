@@ -1,7 +1,6 @@
 package com.pat.maison.config;
 
 import com.pat.maison.config.MainConfig;
-import org.h2.server.web.WebServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
@@ -57,13 +56,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         super.addResourceHandlers(registry);
     }
 
-    @Bean
+    /*@Bean
     ServletRegistrationBean h2servletRegistration(){
         ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
         registrationBean.addUrlMappings("/console/*");
         registrationBean .addInitParameter("webAllowOthers", "true");
         return registrationBean;
-    }
+    }*/
     /* set session time out to 10 minutes ( could have been done in application.properties
     *   but done here for demonstration, no impact for security
     */

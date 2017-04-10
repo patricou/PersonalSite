@@ -1,0 +1,9 @@
+<div class="message">
+    <img class='userpic' src={{m.photoUrl}} alt='' />
+    <span class='nametext'><i>{{m.name}}</i></span>
+    <span class='namekey'><i>{{m.time  | date:'yyyy-MM-dd HH:mm:ss'}}</i></span>
+    <div class='usertext' ng-show='m.text'>{{m.text}}</div>
+    <div ng-show='m.imageUrl'>
+        <img id={{m.$id}} class='pic' src={{retImageUri}}></img>
+    </div>
+</div>

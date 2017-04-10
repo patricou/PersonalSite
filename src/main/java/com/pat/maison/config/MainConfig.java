@@ -21,6 +21,15 @@ public class MainConfig {
     private String sendailTo;
     private String sendailFrom;
     private String IPServer;
+    private String domainName;
+
+    public String getDomainName() {
+        return domainName;
+    }
+
+    public void setDomainName(String domainName) {
+        this.domainName = domainName;
+    }
 
     public String getIPServer() {
         return IPServer;

@@ -61,6 +61,15 @@ public class CentralHome {
     }
 
     @RequestMapping(
+            value = {"/cv"},
+            method = {RequestMethod.GET}
+    )
+    public String redirectToCV(HttpServletRequest request, Model model) {
+        log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURI());
+        return "redirect:https://" + this.mainConfig.getDomainName() + ":8001/cv";
+    }
+
+    @RequestMapping(
             value = {"/wJsXAjZz"},
             method = {RequestMethod.GET}
     )

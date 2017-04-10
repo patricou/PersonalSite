@@ -1,6 +1,6 @@
 <div id="patpictures">
-    <div class="well well-sm">
-        <h2><span class="glyphicon glyphicon-picture logo"> </span> Enjoy all {{params.displayName}} Pictures  <small>&#169;{{params.displayNameCopyright}}</small></h2>
+    <div class="well-sm">
+        <h2><span class="glyphicon glyphicon-picture logo"> </span> Enjoy all {{params.displayName}} Pictures <small>&#169;{{params.displayNameCopyright}}</small></h2>
     </div>
     <div class="container-fluid">
         <div class="row center-block">
@@ -47,7 +47,7 @@
         </div>
         <br>
         <div class="row">
-            <div  class="container-fluid">
+            <div class="container-fluid">
                 <div class="col-sm-12 text-center">
                     <button id="image-gallery-button" type="button" class="btn-lg btn-block btn-success">
                         <span class="glyphicon glyphicon-eye-open">      </span>
@@ -65,9 +65,9 @@
                 </div>
             </div>
         </div>
-        <br>                
+        <br>
         <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body  blueimp-gallery-controls -->
-        <div id="blueimp-gallery" class="blueimp-gallery"> 
+        <div id="blueimp-gallery" class="blueimp-gallery">
             <!-- The container for the modal slides -->
             <div class="slides"></div>
             <!-- Controls for the borderless lightbox -->
@@ -76,11 +76,11 @@
             <a class="next">&raquo;</a>
             <a class="close">&times;</a>
             <a class="play-pause"></a>
-            <ol class="indicator"></ol>    
+            <ol class="indicator"></ol>
         </div>
         <!-- The container for the list of example images -->
-        <div id="links">          
-            <a ng-repeat="i in allimage" href="image{{i}}" title="{{i}}" /> 
-        </div>    
+        <div id="links">
+            <a ng-repeat="i in allimage" href="image{{i}}" title="{{i}}" />
+        </div>
     </div>
 </div>

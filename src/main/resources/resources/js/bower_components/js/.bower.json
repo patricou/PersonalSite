@@ -1,0 +1,12 @@
+{
+  "name": "js",
+  "_cacheHeaders": {
+    "Content-Length": "23338",
+    "Content-Type": "text/javascript; charset=UTF-8"
+  },
+  "main": "index",
+  "_source": "https://maps.googleapis.com/maps/api/js?key=AIzaSyC_JpzTMxi3FTB2jSl2XMe6E8tRQswbJNU",
+  "_target": "*",
+  "_originalSource": "https://maps.googleapis.com/maps/api/js?key=AIzaSyC_JpzTMxi3FTB2jSl2XMe6E8tRQswbJNU",
+  "_direct": true
+}

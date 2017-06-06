@@ -105,6 +105,12 @@
                                 <li role="presentation">
                                     <a class="closemenu" href="cv">CV</a>
                                 </li>
+                                <li role="presentation">
+                                    <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8000">Sport Organizer</a>
+                                </li>
+                                <li role="presentation">
+                                    <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8543">KeyCloak Admin</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

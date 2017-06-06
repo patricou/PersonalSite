@@ -8,5 +8,5 @@ mvnw.cmd
 pinegrow.json
 *.keystore
 target/**
-src/main/resources/resources/js/bower_components
-src/main/resources/application.properties
+#src/main/resources/resources/js/bower_components
+#src/main/resources/application.properties

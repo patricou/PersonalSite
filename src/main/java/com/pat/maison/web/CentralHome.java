@@ -66,7 +66,7 @@ public class CentralHome {
     )
     public String redirectToCV(HttpServletRequest request, Model model) {
         log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURI());
-        return "redirect:https://" + this.mainConfig.getDomainName() + ":8001/cv";
+        return "redirect:https://" + this.mainConfig.getDomainName() + ":8001";
     }
 
     @RequestMapping(

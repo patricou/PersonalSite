@@ -97,6 +97,25 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
+	<distributionManagement>
+		<!--  Publish versioned releases here  -->
+		<repository>
+			<id>nexus</id>
+			<name>My releases</name>
+			<url>
+				http://192.168.1.29:8081/nexus/content/repositories/releases/
+			</url>
+		</repository>
+		<!--  Publish snapshots here  -->
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>My snapshots</name>
+			<url>
+				http://192.168.1.29:8081/nexus/content/repositories/snapshots/
+			</url>
+		</snapshotRepository>
+
+	</distributionManagement>
 
 </project>

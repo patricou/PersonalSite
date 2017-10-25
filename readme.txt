@@ -6,3 +6,6 @@ To execute from intellij :
 clean spring-boot:run
 http://localhost:8080/springbootapp
 .
+
+war in : 
+http://182-193-28-81.ftth.cust.kwaoo.net:8081/nexus/#welcome

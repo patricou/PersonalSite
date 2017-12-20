@@ -70,6 +70,15 @@ public class CentralHome {
     }
 
     @RequestMapping(
+            value = {"/ambar"},
+            method = {RequestMethod.GET}
+    )
+    public String redirectToAmbar(HttpServletRequest request, Model model) {
+        log.info("Connection ambar from " + request.getRemoteAddr() + " to " + request.getRequestURI());
+        return "redirect:http://" + this.mainConfig.getIPServer() + ":8002";
+    }
+
+    @RequestMapping(
             value = {"/wJsXAjZz"},
             method = {RequestMethod.GET}
     )

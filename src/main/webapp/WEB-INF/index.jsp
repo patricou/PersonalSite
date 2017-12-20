@@ -112,7 +112,7 @@
                                     <a class="closemenu" href="http://patdesch.eu-central-1.elasticbeanstalk.com/">Doc Manager</a>
                                 </li>
                                 <li role="presentation">
-                                    <a class="closemenu" href="http://182-193-28-81.ftth.cust.kwaoo.net:8002">Ambar</a>
+                                    <a class="closemenu" href="http://182-193-28-81.ftth.cust.kwaoo.net:8002"> Ambar</a>
                                 </li>
                                 <li role="presentation">
                                     <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8543">KeyCloak Admin</a>

@@ -79,7 +79,7 @@
                                     <a href="#/media">Photos</a>
                                 </li>
                                 <li class="closemenu" role="presentation">
-                                    <a href="#/camera">Cameras</a>
+                                    <a href="camera">Cameras</a>
                                 </li>
                             </ul>
                         </li>

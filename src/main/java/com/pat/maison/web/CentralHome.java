@@ -54,10 +54,11 @@ public class CentralHome {
             value = {"/camera"},
             method = {RequestMethod.GET}
     )
-    public String redirectToCameraConfog(HttpServletRequest request, Model model) {
+    public String redirectToCameraConfig(HttpServletRequest request, Model model) {
         log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURI());
         model.addAttribute("params", this.mainConfig);
-        return "redirect:http://" + this.mainConfig.getIPServer() + ":8765";
+       // return "redirect:http://" + this.mainConfig.getIPServer() + ":8765";
+        return "redirect:http://" + this.mainConfig.getIPServer() + ":8003/webman/3rdparty/SurveillanceStation/";
     }
 
     @RequestMapping(
@@ -77,6 +78,7 @@ public class CentralHome {
         log.info("Connection ambar from " + request.getRemoteAddr() + " to " + request.getRequestURI());
         return "redirect:http://" + this.mainConfig.getIPServer() + ":8002";
     }
+
 
     @RequestMapping(
             value = {"/wJsXAjZz"},

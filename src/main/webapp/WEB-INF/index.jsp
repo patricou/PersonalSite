@@ -79,7 +79,7 @@
                                     <a href="#/media">Photos</a>
                                 </li>
                                 <li class="closemenu" role="presentation">
-                                    <a href="camera">Cameras</a>
+                                    <a href="camera" target="_blank">Cameras</a>
                                 </li>
                             </ul>
                         </li>
@@ -103,19 +103,22 @@
                                     <a class="closemenu" href="#/position">Position</a>
                                 </li>
                                 <li role="presentation">
-                                    <a class="closemenu" href="cv">CV</a>
+                                    <a class="closemenu" href="cv" target="_blank">CV</a>
                                 </li>
                                 <li role="presentation">
-                                    <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8000">Sport Organizer</a>
+                                    <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8000" target="_blank">Sport Organizer</a>
                                 </li>
                                 <li role="presentation">
-                                    <a class="closemenu" href="http://patdesch.eu-central-1.elasticbeanstalk.com/">Doc Manager</a>
+                                    <a class="closemenu" href="http://patdesch.eu-central-1.elasticbeanstalk.com/" target="_blank">Doc Manager</a>
                                 </li>
                                 <li role="presentation">
-                                    <a class="closemenu" href="ambar">Ambar</a>
+                                    <a class="closemenu" href="ambar" target="_blank">Ambar</a>
                                 </li>
                                 <li role="presentation">
-                                    <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8543">KeyCloak Admin</a>
+                                    <a class="closemenu" href="synology" target="_blank">Synology</a>
+                                </li>
+                                <li role="presentation">
+                                    <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8543" target="_blank">KeyCloak Admin</a>
                                 </li>
                             </ul>
                         </li>

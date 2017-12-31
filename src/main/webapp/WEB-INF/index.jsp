@@ -79,6 +79,9 @@
                                     <a href="#/media">Photos</a>
                                 </li>
                                 <li class="closemenu" role="presentation">
+                                    <a href="https://photos.google.com/" target="_blank">Photos Google</a>
+                                </li>
+                                <li class="closemenu" role="presentation">
                                     <a href="camera" target="_blank">Cameras</a>
                                 </li>
                             </ul>

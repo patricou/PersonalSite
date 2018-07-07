@@ -152,6 +152,7 @@ public class RestCentralHome {
         try {
             MultipartFile[] e = mulitplartFile;
             int var4 = mulitplartFile.length;
+            boolean toBeParsed = Boolean.parseBoolean(request.getHeader("to-be-parsed"));
 
             for(int var5 = 0; var5 < var4; ++var5) {
                 MultipartFile uploadfile = e[var5];
@@ -159,7 +160,12 @@ public class RestCentralHome {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd");
                 SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
                 Date date = new Date();
-                String directory = this.mainConfig.getUploadDir() + yearFormat.format(date) + "/" + dateFormat.format(date) + "_from_uploaded";
+                String directory ;
+                if (toBeParsed)
+                    directory = this.mainConfig.getUploadDir4Parsing()+"Patrick/upload";
+                else
+                   directory = this.mainConfig.getUploadDir() + yearFormat.format(date) + "/" + dateFormat.format(date) + "_from_uploaded";
+
                 File file = new File(directory);
                 if(!file.exists() && file.mkdir()) {
                     log.info("Directory " + directory + " created !");
@@ -169,9 +175,9 @@ public class RestCentralHome {
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(filepath)));
                 stream.write(uploadfile.getBytes());
                 stream.close();
-                String subject = " Image " + filename + " uploaded from " + request.getRemoteAddr();
+                String subject = " File " + filename + " uploaded from " + request.getRemoteAddr() + "( to be parsed : "+ toBeParsed + ")" ;
                 this.smtpMailSender.sendMail(this.mainConfig.getSendailFrom(), this.mainConfig.getSendailTo(), subject, filepath, filepath);
-                log.info("Upload file " + filename + " from " + request.getRemoteAddr());
+                log.info("Upload file " + filename + " from " + request.getRemoteAddr() + "( to be parsed : "+ toBeParsed);
             }
         } catch (Exception var16) {
             log.info(var16.getMessage());

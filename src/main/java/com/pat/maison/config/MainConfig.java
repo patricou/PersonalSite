@@ -14,6 +14,7 @@ public class MainConfig {
     private static Logger log = Logger.getLogger(MainConfig.class);
     private String imagesDir;
     private String uploadDir;
+    private String uploadDir4Parsing;
     private String displayName;
     private String displayNameCopyright;
     private String mainPageImage;
@@ -109,5 +110,13 @@ public class MainConfig {
 
     public void setMainPageVideo(String mainPageVideo) {
         this.mainPageVideo = mainPageVideo;
+    }
+
+    public String getUploadDir4Parsing() {
+        return uploadDir4Parsing;
+    }
+
+    public void setUploadDir4Parsing(String uploadDir4Parsing) {
+        this.uploadDir4Parsing = uploadDir4Parsing;
     }
 }

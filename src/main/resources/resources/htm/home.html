@@ -45,16 +45,19 @@
     <div id="loadcont" class="container-fluid">
         <div class="row">
             <div class="col-sx-6 col-sm-4 col-md-2">
+                 <span>
+                    <input id="chk1" type="checkbox" ng-model="chkVal1" />  {{ chkVal2 }}
+                </span>
                 <form id="upload-file-form" class="form-inline" role="search">
-                    <div>
-                        <label for="upload-file-input" class="custom-file-upload">
-                            <i class="fa fa-cloud-upload"></i> Upload Image
-                        </label>
-                        <span id="homeimload" ng-class="alertload">  <!-- ng-show="!homelabel">  -->
-                            <b>   {{uploadmessage}}  </b>
-                        </span>
+                    <label for="upload-file-input" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload"></i> Upload Files
+                    </label>
+                    <span id="homeimload" ng-class="alertload">  <!-- ng-show="!homelabel">  -->
+                        <b>   {{uploadmessage}}  </b>
+                    </span>
+                    <span>
                         <input id="upload-file-input" name="uploadfile" type="file" multiple accept="*" />
-                    </div>
+                    </span>
                 </form>
             </div>
         </div>

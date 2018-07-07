@@ -7,6 +7,19 @@ define([], function() {
             $scope.params = response.get('mainParams');
         });
         $scope.uploadmessage = '';
+        $scope.chkVal1 = false;
+        $scope.chkVal2 = "To be parsed";
+        $("#chk1").on("change",
+            function(){
+                if ($scope.chkVal1 == true){
+                    $scope.chkVal2 = "To be parsed";
+                    $log.info("To be parsed");
+                } else {
+                    $scope.chkVal2 = "To not be parsed";
+                    $log.info("To not be parsed");
+                };
+            });
+
         //upload file        
         $("#upload-file-form").on("change",
             function() {
@@ -16,9 +29,11 @@ define([], function() {
                 var request = {
                     method: 'POST',
                     url: "rest/uploadFile",
+                    //data: {uploadfile:new FormData($("#upload-file-form")[0]), p2:$scope.chkVal1},
                     data: new FormData($("#upload-file-form")[0]),
                     headers: {
-                        'Content-Type': undefined
+                        'Content-Type': undefined,
+                        'to-be-parsed':$scope.chkVal1
                     }
                 };
                 // SEND THE FILES.

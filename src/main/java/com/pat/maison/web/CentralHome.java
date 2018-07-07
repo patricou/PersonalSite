@@ -91,7 +91,7 @@ public class CentralHome {
     public String redirectToAmbar(HttpServletRequest request, Model model) {
         log.info("Connection ambar from " + request.getRemoteAddr() + " to " + request.getRequestURI());
         //return "redirect:http://" + this.mainConfig.getIPServer() + ":8002";
-        return "redirect:http://81.28.193.182:8004";
+        return "redirect:https://182-193-28-81.ftth.cust.kwaoo.net:8005";
     }
 
 

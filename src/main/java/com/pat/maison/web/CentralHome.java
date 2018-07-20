@@ -76,6 +76,15 @@ public class CentralHome {
     }
 
     @RequestMapping(
+            value = {"/splunk"},
+            method = {RequestMethod.GET}
+    )
+    public String redirectToSplunk(HttpServletRequest request, Model model) {
+        log.info("Connection from " + request.getRemoteAddr() + " to " + request.getRequestURI());
+        return "redirect:https://" + this.mainConfig.getDomainName() + ":8010";
+    }
+
+    @RequestMapping(
             value = {"/cv"},
             method = {RequestMethod.GET}
     )

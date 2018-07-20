@@ -121,6 +121,9 @@
                                     <a class="closemenu" href="synology" target="_blank">Synology</a>
                                 </li>
                                 <li role="presentation">
+                                    <a class="closemenu" href="splunk" target="_blank">Splunk</a>
+                                </li>
+                                <li role="presentation">
                                     <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8543" target="_blank">KeyCloak Admin</a>
                                 </li>
                             </ul>

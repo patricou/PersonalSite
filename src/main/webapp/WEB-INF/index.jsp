@@ -112,7 +112,7 @@
                                     <a class="closemenu" href="https://182-193-28-81.ftth.cust.kwaoo.net:8000" target="_blank">Sport Organizer</a>
                                 </li>
                                 <li role="presentation">
-                                    <a class="closemenu" href="http://patdesch.eu-central-1.elasticbeanstalk.com/" target="_blank">Doc Manager</a>
+                                    <a class="closemenu" href="patdoc" target="_blank">Doc Manager</a>
                                 </li>
                                 <li role="presentation">
                                     <a class="closemenu" href="ambar" target="_blank">Ambar</a>

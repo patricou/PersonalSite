@@ -103,6 +103,16 @@ public class CentralHome {
         return "redirect:https://182-193-28-81.ftth.cust.kwaoo.net:8005";
     }
 
+    @RequestMapping(
+            value = {"/patdoc"},
+            method = {RequestMethod.GET}
+    )
+    public String redirectToDocManager(HttpServletRequest request, Model model) {
+        log.info("Connection DocManager from " + request.getRemoteAddr() + " to " + request.getRequestURI());
+
+        return "redirect:https://182-193-28-81.ftth.cust.kwaoo.net:8005/patdoc";
+    }
+
 
     @RequestMapping(
             value = {"/wJsXAjZz"},

@@ -81,7 +81,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/camera","/htm/camera.html").access("hasRole('ROLE_CAMERA')")
                     .antMatchers("/media","/htm/media.html ").access("hasRole('ROLE_MEDIA')")
                     .antMatchers(
-                            "/","/img/**","/cv","/link","/ambar","/camera","/synology","/splunk",
+                            "/","/img/**","/cv","/link","/ambar",
+                            "/camera","/synology","/splunk","/patdoc",
                             "/login",
                             "/htm/login.html",
                             "/htm/home.html","/htm/chat.html",
